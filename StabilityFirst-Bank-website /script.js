@@ -9,6 +9,12 @@ const btnCloseModalWindow = document.querySelector('.btn--close-modal-window');
 const btnsOpenModalWindow = document.querySelectorAll(
   '.btn--show-modal-window'
 );
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+const tabs = document.querySelectorAll('.operations__tab');
+const tabContainer = document.querySelector('.operations__tab-container');
+const tabContents = document.querySelectorAll('.operations__content');
 
 const openModalWindow = function (e) {
   e.preventDefault();
@@ -34,9 +40,6 @@ document.addEventListener('keydown', function (e) {
     closeModalWindow();
   }
 });
-
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
 
 btnScrollTo.addEventListener('click', function (e) {
   const section1Coords = section1.getBoundingClientRect();
@@ -81,28 +84,24 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 });
 
 // Tabs
-const tabs = document.querySelectorAll('operations__tab');
-const tabContainer = document.querySelector('operations__tab-container');
-const tabContents = document.querySelectorAll('operations__content')
 
-tabContainer.addEventListener('click', function(e) {
+tabContainer.addEventListener('click', function (e) {
   const clickedButton = e.target.closest('.operations__tab');
-  if(!clickedButton) return;
+  // Guard clause
+  if (!clickedButton) return;
 
   // Active tab
-  tabs.forEach(tab => tab.remove.
-    classList('operations__tab--active'));
-    clickedButton.classList.add
-    ('operations__tab--active');
+  tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
+  clickedButton.classList.add('operations__tab--active');
 
-    // Active content
-    tabContents.forEach(content => 
-      content.classList.remove
-      ('operations__content--active')
-      );
-      document.querySelector(`operations__content--${clickedButton.dataset.tab}`)
-      .classList.add('operations__content--active');
-})
+  // Active content
+  tabContents.forEach(content =>
+    content.classList.remove('operations__content--active')
+  );
+  document
+    .querySelector(`.operations__content--${clickedButton.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
 
 // Fade Animation on Navigation Bar
 
