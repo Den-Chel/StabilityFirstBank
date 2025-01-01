@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload only the contents of your subfolder
-          path: './StabilityFirst-Bank-website'
+          path: './StabilityFirstBank/StabilityFirst-Bank-website/'
 
       - name: Deploy to GitHub Pages
         id: deployment
