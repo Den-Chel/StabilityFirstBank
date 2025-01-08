@@ -17,7 +17,12 @@
     <nav class="nav">
       <img src="img/logo.png" alt="Stability First Bank" class="nav__logo" id="logo" />
       <div class="nav__text">Stability First Bank</div>
-      <ul class="nav__links">
+      <button class="nav__toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__links" id="nav-links">
         <li class="nav__item">
           <a class="nav__link" href="#section--1">Services</a>
         </li>
@@ -194,7 +199,7 @@
     </div>
 
     <div class="slider">
-      <div class="slide slide--1">
+      <div class="slide slide--1 slide--active">
         <div class="review">
           <h5 class="review__header">The best financial solution!</h5>
           <blockquote class="review__text">
@@ -260,7 +265,7 @@
         Now is the best time to become a client of our bank.
       </h3>
     </div>
-    <button class="btn btn--show-modal-window">Open an account today.</button>
+    <button class="btn btn--show-modal-window">Open an account today</button>
   </section>
 
   <footer class="footer">
